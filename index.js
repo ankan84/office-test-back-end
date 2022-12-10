@@ -8,11 +8,14 @@ app.use(cors())
 const connection = require('./DB')
 const Data = require('./Schema')
 
-const PORT = 5000;
+const PORT = process.env.PORT||5000;
 
 app.get('/',async(req,res)=>{
+
+
     try{
-        res.status(200).send("back-end connected")
+        
+        res.status(200).send(`back-end connected`)
     }catch(e){
         res.status(400).send(e)
     }
